@@ -14,6 +14,6 @@ COPY run.sh update_ipv4.sh update_ipv6.sh delete_ipv6.sh /usr/local/bin/
 
 WORKDIR /usr/local/bin/
 
-RUN chmod +x run.sh update_ipv4.sh update_ipv6.sh
+RUN chmod +x run.sh update_ipv4.sh update_ipv6.sh delete_ipv6.sh
 
 CMD ["./run.sh"]
