@@ -10,7 +10,7 @@ RUN apk -U upgrade \
  && apk add curl openssl bind-tools \
  && rm -rf /var/cache/apk/*
 
-COPY run.sh update_ipv4.sh update_ipv6.sh /usr/local/bin/
+COPY run.sh update_ipv4.sh update_ipv6.sh delete_ipv6.sh /usr/local/bin/
 
 WORKDIR /usr/local/bin/
 
