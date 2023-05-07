@@ -21,11 +21,11 @@ for RECORD in ${RECORD_LIST//;/ } ; do
     continue
   fi
 
-  status=$(curl -s -w %{http_code} -o /dev/null -XDELETE -d \
+  status=$(curl -s -w %{http_code} -o /dev/null -XDELETE \
     -H"X-Api-Key: ${APIKEY}" \
     "${API}/domains/${DOMAIN}/records/${RECORD}/AAAA")
-  if [ "${status}" = '201' ] ; then
-    echo "$(date "+[%Y-%m-%d %H:%M:%S]") [OK] Delete ${RECORD}"
+  if [ "${status}" = '204' ] ; then
+    echo "$(date "+[%Y-%m-%d %H:%M:%S]") [OK] Delete DNS AAAA record for ${RECORD}"
   else
     echo "$(date "+[%Y-%m-%d %H:%M:%S]") [ERROR] API POST returned status ${status}"
   fi
